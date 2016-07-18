@@ -15,7 +15,7 @@ A program that recreates half-pyramid using hashes (#) for blocks.
 
 int main(void)
 {
-    // Get height
+    // Get height of half-pyramid
     int height;
     do
     {
