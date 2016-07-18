@@ -1,3 +1,15 @@
+/*
+Author: Angel Chou
+Year: 2016
+
+Course: CS50
+PSet: 1, Hacker Edition
+Title: Bad Credit
+
+Decription:
+A program that prompts the user for a credit card number and then reports whether it is a valid American Express, MasterCard, or Visa card number, per the definitions of each’s format herein.
+*/
+
 #include <cs50.h>
 #include <stdio.h>
 
@@ -6,23 +18,23 @@ bool checksum(int count, long input);
 int main(void)
 {
     printf("Number: ");
-    long input = GetLongLong(); 
+    long input = GetLongLong();
     int count = 0;
-    
-    // get number of digits
+
+    // Get number of digits
     long n = input;
     while(n > 0)
     {
         count++;
         n /= 10;
     }
-    
+
     if (checksum(count, input))
     {
         long s = 1;
         for(int i = 0; i < count - 2; i++)
             s*=10;
-            
+
         long head = input / s;
         if(count == 15 && (head == 34 || head == 37))
             printf("AMEX\n");
@@ -35,6 +47,7 @@ int main(void)
     }
     else
         printf("INVALID\n");
+
     return 0;
 }
 
@@ -62,6 +75,7 @@ bool checksum(int count, long n)
         }
         n /= 10;
     }
+
     if((sum1 + sum2) % 10 == 0)
         return true;
     else
