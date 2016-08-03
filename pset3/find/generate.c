@@ -24,17 +24,19 @@
 
 int main(int argc, string argv[])
 {
-    // TODO: comment me
+    // Get one or two arguments for this program.
+    // 1st argument (required): how many numbers you'd like to generate.
+    // 2nd argument (optional): seed of pseudorandom-number generator.
     if (argc != 2 && argc != 3)
     {
         printf("Usage: generate n [s]\n");
         return 1;
     }
 
-    // TODO: comment me
+    // Change data type of 1st argument from string to integer.
     int n = atoi(argv[1]);
 
-    // TODO: comment me
+    // Use given seed for generator if 2nd argument is provided.
     if (argc == 3)
     {
         srand48((long int) atoi(argv[2]));
@@ -44,7 +46,7 @@ int main(int argc, string argv[])
         srand48((long int) time(NULL));
     }
 
-    // TODO: comment me
+    // Generate and Print n numbers of random number one at a line.
     for (int i = 0; i < n; i++)
     {
         printf("%i\n", (int) (drand48() * LIMIT));
