@@ -16,7 +16,13 @@
  */
 bool search(int value, int array[], int n)
 {
-    // TODO: implement a searching algorithm
+    for (int i = 0; i < n; i++)
+    {
+        if (value == array[i])
+        {
+            return true;
+        }
+    }
     return false;
 }
 
