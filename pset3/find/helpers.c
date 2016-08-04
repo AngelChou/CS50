@@ -23,13 +23,29 @@ bool binarySearch(int value, int values[], int n);
  */
 bool search(int value, int values[], int n)
 {
-    return linearSearch(value, values, n);
-    //return binarySearch(value, values, n);
+    //return linearSearch(value, values, n);
+    return binarySearch(value, values, n);
 }
 
 bool binarySearch(int value, int values[], int n)
 {
-    
+    int mid = n/2;
+    if (mid == 0 && value != values[mid])
+    {
+        return false;
+    }
+    else if (value == values[mid])
+    {
+        return true;
+    }
+    else if (value < values[mid])
+    {
+        return binarySearch(value, values, mid);
+    }
+    else
+    {
+        return binarySearch(value, values + mid, n - mid);
+    }
 }
 
 bool linearSearch(int value, int values[], int n)
