@@ -159,7 +159,22 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+    // The game begins with the board's tiles in reverse order.
+    int num = d * d - 1;
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            board[i][j] = num--;
+        }
+    }
+    // iff the board contains an odd number of tiles, the positions of tiles numbered 1 and 2 must be swapped
+    if (d % 2 == 0)
+    {
+        int tmp = board[d-1][d-2];
+        board[d-1][d-2] = board[d-1][d-3];
+        board[d-1][d-3] = tmp;
+    }
 }
 
 /**
