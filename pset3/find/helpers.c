@@ -15,18 +15,31 @@
 void bubbleSort(int values[], int n);
 void selectionSort(int values[], int n);
 void insertionSort(int values[], int n);
+bool linearSearch(int value, int values[], int n);
+bool binarySearch(int value, int values[], int n);
 
 /**
  * Returns true if value is in array of n values, else false.
  */
 bool search(int value, int values[], int n)
 {
+    return linearSearch(value, values, n);
+    //return binarySearch(value, values, n);
+}
+
+bool binarySearch(int value, int values[], int n)
+{
+    
+}
+
+bool linearSearch(int value, int values[], int n)
+{
     for(int i = 0; i < n; i++)
     {
         if(values[i] == value)
             return true;
     }
-    return false;
+    return false;    
 }
 
 /**
@@ -86,15 +99,15 @@ void selectionSort(int values[], int n)
 
 void insertionSort(int values[], int n)
 {
-    for (int i = 2; i < n + 2; i++)
+    for (int i = 1; i < n; i++) //unsorted index
     {
-        for (int j = i - 1; j > 0; j--)
+        for (int j = 0; j < i; j++) //sorted index
         {
-            if (values[j] < values[j - 1])
+            if (values[i] < values[j])
             {
                 int tmp = values[j];
-                values[j] = values[j - 1];
-                values[j - 1] = tmp;
+                values[j] = values[i];
+                values[i] = tmp;
             }
         }
     }
