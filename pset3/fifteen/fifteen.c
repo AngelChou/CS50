@@ -32,6 +32,8 @@ int board[DIM_MAX][DIM_MAX];
 // dimensions
 int d;
 
+// blank positions
+
 // prototypes
 void clear(void);
 void greet(void);
@@ -188,7 +190,7 @@ void draw(void)
         {
             if (board[i][j] == 0)
             {
-                printf(" _");
+                printf(" _ ");
             }
             else
             {
@@ -205,7 +207,50 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
+    int x = -1, y = -1; // store the position of blank
+    
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            if (board[i][j] == 0)
+            {
+                x = i;
+                y = j;
+                break;
+            }
+        }
+        if (x > 0 && y > 0)
+        {
+            break;
+        }
+    }
+    
+    if (x - 1 < d && board[x-1][y] == tile) // check left
+    {
+        board[x][y] = tile;
+        board[x-1][y] = 0;
+        return true;
+    }
+    if (x + 1 < d && board[x+1][y] == tile) // check right
+    {
+        board[x][y] = tile;
+        board[x+1][y] = 0;
+        return true;
+    }
+    if (y - 1 < d && board[x][y-1] == tile) // check buttom
+    {
+        board[x][y] = tile;
+        board[x][y-1] = 0;
+        return true;
+    }
+    if (y + 1 < d && board[x][y+1] == tile) // check top
+    {
+        board[x][y] = tile;
+        board[x][y+1] = 0;
+        return true;
+    }
+    
     return false;
 }
 
@@ -215,6 +260,17 @@ bool move(int tile)
  */
 bool won(void)
 {
-    // TODO
-    return false;
+    int count = 1;
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            if(board[i][j] != count && count != d * d)
+            {
+                return false;
+            }
+            count++;
+        }
+    }
+    return true;
 }
