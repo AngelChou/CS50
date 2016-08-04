@@ -3,7 +3,7 @@ questions.txt
 Computer Science 50
 Problem Set 3
 
-0. TODO
-1. TODO
-2. TODO
-3. TODO
+0. Board must be between 3x3 and 9x9, inclusive.
+1. 2D array.
+2. greet().
+3. init(), draw(), move(), won().
