@@ -8,6 +8,7 @@
  */
        
 #include <cs50.h>
+#include <stdio.h>
 
 #include "helpers.h"
 
@@ -31,6 +32,19 @@ bool search(int value, int array[], int n)
  */
 void sort(int values[], int n)
 {
-    // TODO: implement an O(n) sorting algorithm
+    // counting sort
+    int count[65536] = {0};
+    for (int i = 0; i < n; i++)
+    {
+        count[ values[i] ]++;
+    }
+        
+    for (int i = 0, j = 0; i < n; ++i)
+    {
+        if (count[i]--)
+        {
+            values[j++] = i;
+        }
+    }
     return;
 }
