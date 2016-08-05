@@ -17,13 +17,27 @@
  */
 bool search(int value, int array[], int n)
 {
-    for (int i = 0; i < n; i++)
+    if (n > 0)
     {
-        if (value == array[i])
+        int mid = n / 2;
+        if (mid == 0 && value != array[mid])
+        {
+            return false;
+        }
+        else if (value == array[mid])
         {
             return true;
         }
+        else if (value > array[mid])
+        {
+            return search(value, array + mid, n - mid);
+        }
+        else if (value < array[mid])
+        {
+            return search(value, array, mid);
+        }
     }
+    
     return false;
 }
 
