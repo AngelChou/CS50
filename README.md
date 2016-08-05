@@ -34,6 +34,16 @@ My solutions of HarvardX -  CS50 2015
 - Variables
 
 ### Problem Set 1: C
+- Standard
+  - Hello, C
+  - Smart Water
+  - Time for Change
+  - Itsa Mario
+- Hacker
+  - Hello, C
+  - Smart Water
+  - Bad Credit
+  - Itsa Mario
 
 ## Week 2
 ---
@@ -57,6 +67,13 @@ My solutions of HarvardX -  CS50 2015
 - Vigenere Cipher
 
 ### Problem Set 2: Crypto
+- Standard
+  - Hail, Caesar!
+  - Initializing
+  - Parlez-vous français?
+- Hacker
+  - Initializing
+  - Passwords Et Cetera
 
 ## Week 3
 ---
@@ -83,6 +100,23 @@ My solutions of HarvardX -  CS50 2015
 - Merge Sort
 
 ### Problem Set 3: Game of Fifteen
+- Standard
+  - Searching
+    - linear search
+  - Sorting
+    - sort O(n^2): bubble sort, selection sort, insertion sort
+    - binary search
+  - The Game Begins
+    - questions
+    - fifteen: init(), draw(), move(), won()
+- Hacker
+  - Searching
+    - linear search
+  - Sorting
+    - sort O(n): counting sort
+    - binary search
+  - The Game Begins
+    - fifteen: init(), draw(), move(), won() and GOD mode
 
 ## Week 4
 ---
