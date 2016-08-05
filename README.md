@@ -3,6 +3,19 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 0
 ---
+### Lecture
+- This is CS50
+- Binary
+- Algorithm
+- Syllabus
+
+### Lecture, continued
+- Introduction
+- Algorithm
+- PB&J Demonstration
+- Yale Introduction
+- Source Code and Scratch
+
 ### Shorts
 - Algorithms
 - ASCII
@@ -11,9 +24,30 @@ My solutions of HarvardX -  CS50 2015
 - Threads
 
 ### Problem Set 0: Scratch
+- Itching to Program?
 
 ## Week 1
 ---
+### Lecture
+- Introduction
+- Announcements
+- C
+- CS50 IDE
+- Writing Code
+
+### Lecture, continued
+- Imprecision
+- Announcements
+- C
+- Types
+  - Conditions
+  - Loops
+  - Integer Overflow
+  - Loops, continued
+  - Variables
+  - Functions and Arguments
+- Problem Set 1
+
 ### Section
 - Command Line
 - Data Types
@@ -37,8 +71,8 @@ My solutions of HarvardX -  CS50 2015
 - Standard
   - Hello, C
   - Smart Water
-  - Time for Change
   - Itsa Mario
+  - Time for Change
 - Hacker
   - Hello, C
   - Smart Water
@@ -47,6 +81,21 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 2
 ---
+### Lecture
+- Bugs
+- Announcements
+- Functions
+- Representing Strings
+- Typecasting
+- References
+
+### Lecture, continued
+- Introduction
+- More on Strings
+- Arrays
+- Command-Line Arguments
+- Cryptography
+
 ### Section
 - Administrivia
 - Functions
@@ -55,7 +104,7 @@ My solutions of HarvardX -  CS50 2015
 - Command Line Arguments
 - Magic Numbers
 
-## Shorts
+### Shorts
 - Arrays
 - Caesar Cipher
 - Command-Line Arguments
@@ -77,6 +126,18 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 3
 ---
+### Lecture
+- Announvements
+- Searching and Sorting
+- Sorting Algorithms
+- Algorithmic Efficiency
+
+### Lecture, continued
+- Introduction
+- Merge Sort
+- Compiling
+- Bitwise Operators
+
 ### Section
 - GDB
 - Debugging with Dan Armendariz
@@ -120,6 +181,21 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 4
 ---
+### Lecture
+- Volkswagen and Trust in Software
+- Recursion
+- Sigma
+- Swap
+- Debugging with CS50 IDE
+- Pointers
+
+### Lecture, continued
+- Files, Headers, and Hex
+- Structs
+- Quick Reminder
+- Strings and Pointers
+- Memory Allocation
+
 ### Section
 - Hexadecimal
 - Pointers
@@ -145,7 +221,7 @@ My solutions of HarvardX -  CS50 2015
 - Singly-Linked Lists
 - Doubly-Linked Lists
 
-## Shorts
+### Shorts
 - CS50 Library
 - Singly Linked Lists
 - Valgrind
@@ -159,7 +235,7 @@ My solutions of HarvardX -  CS50 2015
 - Tries
 - Data Structures Summary
 
-## Shorts
+### Shorts
 - Hash Tables
 - Queues
 - Trees
