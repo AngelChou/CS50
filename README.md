@@ -2,7 +2,7 @@
 My solutions of HarvardX -  CS50 2015
 
 ## Week 0
----
+
 ### Lecture
 - This is CS50
 - Binary
@@ -27,7 +27,7 @@ My solutions of HarvardX -  CS50 2015
 - Itching to Program?
 
 ## Week 1
----
+
 ### Lecture
 - Introduction
 - Announcements
@@ -80,7 +80,7 @@ My solutions of HarvardX -  CS50 2015
   - Itsa Mario
 
 ## Week 2
----
+
 ### Lecture
 - Bugs
 - Announcements
@@ -125,7 +125,7 @@ My solutions of HarvardX -  CS50 2015
   - Passwords Et Cetera
 
 ## Week 3
----
+
 ### Lecture
 - Announvements
 - Searching and Sorting
@@ -180,7 +180,7 @@ My solutions of HarvardX -  CS50 2015
     - fifteen: init(), draw(), move(), won() and GOD mode
 
 ## Week 4
----
+
 ### Lecture
 - Volkswagen and Trust in Software
 - Recursion
@@ -214,8 +214,14 @@ My solutions of HarvardX -  CS50 2015
 - Strings
 - Structs
 
+### Problem Set 4: Forensics
+- Getting started
+  - whodunit 
+  - resize
+  - recover
+
 ## Week 5
----
+
 ### Section
 - File Pointers
 - Singly-Linked Lists
@@ -227,7 +233,7 @@ My solutions of HarvardX -  CS50 2015
 - Valgrind
 
 ## Week 6
----
+
 ### Section
 - Stacks
 - Queues
@@ -244,7 +250,7 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 5: Mispellings
 
 ## Week 7
----
+
 ### Section
 - Internet Primer
 - IP
@@ -262,7 +268,7 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 6: Web Server
 
 ## Week 8
----
+
 ### Section
 - PHP Syntax
 - PHP for Web Development
@@ -277,7 +283,7 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 7: C$50 Finance
 
 ## Week 9
----
+
 ### Section
 - DOM
 - JavaScript
@@ -289,14 +295,14 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 8: Mashup
 
 ## Week 10
----
+
 
 ## Week 11
----
+
 ### AI Series
 
 ## Week 12
----
+
 ### Seminars
 - Awesome iPhone Apps with Objective-C
 - Building Apps for Mobile, Gaming, IoT and more using AWS DynamoDB
