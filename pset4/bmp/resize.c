@@ -9,6 +9,7 @@
        
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "bmp.h"
 
@@ -43,7 +44,7 @@ int main(int argc, char* argv[])
         return 3;
     }
     
-    if (n < 0 || n > 100)
+    if (n <= 0 || n > 100)
     {
         printf("resize value must be a positive integer less than or equal to 100.\n");
         return 4;
@@ -66,6 +67,16 @@ int main(int argc, char* argv[])
         fprintf(stderr, "Unsupported file format.\n");
         return 4;
     }
+    
+    // original padding
+    int padding =  (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
+    
+    // updating header info
+    bi.biWidth *= n;
+    bi.biHeight *= n;
+    int padding_new =  (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
+    bi.biSizeImage = (abs(bi.biWidth) * sizeof(RGBTRIPLE) + padding_new) * abs(bi.biHeight);
+    bf.bfSize = bi.biSizeImage + sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
 
     // write outfile's BITMAPFILEHEADER
     fwrite(&bf, sizeof(BITMAPFILEHEADER), 1, outptr);
@@ -73,33 +84,53 @@ int main(int argc, char* argv[])
     // write outfile's BITMAPINFOHEADER
     fwrite(&bi, sizeof(BITMAPINFOHEADER), 1, outptr);
 
-    // determine padding for scanlines
-    int padding =  (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
-
+    
     // iterate over infile's scanlines
-    for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
+    for (int i = 0, biHeight = abs(bi.biHeight) / n ; i < biHeight; i++)
     {
+        RGBTRIPLE *ptr = malloc(sizeof(RGBTRIPLE) * bi.biWidth);
+        memset(ptr, 0x00, sizeof(RGBTRIPLE) * bi.biWidth);
+        
         // iterate over pixels in scanline
-        for (int j = 0; j < bi.biWidth; j++)
+        for (int j = 0, biWidth = bi.biWidth / n; j < biWidth; j++)
         {
             // temporary storage
             RGBTRIPLE triple;
 
             // read RGB triple from infile
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
-
-            // write RGB triple to outfile
-            fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
+            
+            // resize horizontally
+            for (int k = 0; k < n; k++)
+            {
+                // write RGB triple to outfile
+                fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);  
+                memcpy(ptr + (j * n + k), &triple, sizeof(triple));
+            }
         }
-
-        // skip over padding, if any
-        fseek(inptr, padding, SEEK_CUR);
-
+        
         // then add it back (to demonstrate how)
-        for (int k = 0; k < padding; k++)
+        for (int k = 0; k < padding_new; k++)
         {
             fputc(0x00, outptr);
         }
+        
+        // resize vertically use "Rewrite" methods
+        for (int l = 0; l < n - 1; l++)
+        {
+            fwrite(ptr, sizeof(RGBTRIPLE) * bi.biWidth, 1, outptr);
+            // then add it back (to demonstrate how)
+            for (int k = 0; k < padding_new; k++)
+            {
+                fputc(0x00, outptr);
+            }
+        }
+        
+        free(ptr);
+
+        
+        // skip over padding, if any
+        fseek(inptr, padding, SEEK_CUR);
     }
 
     // close infile
