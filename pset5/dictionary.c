@@ -86,7 +86,7 @@ bool check(const char* word)
             trav = trav->children[index];
         }
         
-        if (i == n - 1 && trav != NULL)
+        if (i == n - 1 && trav != NULL && trav->is_word)
         {
             return true;
         }
