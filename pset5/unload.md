@@ -21,7 +21,7 @@ while (cursor != NULL)
 
 ## Valgrind
 ```shell
-valgrind -v --lead-check=full ./speller ~cs50/pset5/texts/austinpowers.txt
+valgrind -v --leak-check=full ./speller ~cs50/pset5/texts/austinpowers.txt
 ```
 
 ## Tips
