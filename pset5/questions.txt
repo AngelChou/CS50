@@ -1,10 +1,26 @@
-0.  TODO
-1.  TODO
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+It is the longest word in the English language published in a dictionary, the Oxford English Dictionary.
+
+1.  According to its man page, what does getrusage do?
+get resource usage
+
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+16
+
+3. Why do you think we pass before and after by reference (instead of by value) to calculate, even though we’re not changing their contents?
+pass by value will use another two struct rusage to store the same value, which means it need additional memory space for the arguments.
+
+4. Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file. In other words, convince us that you indeed understand how that function’s for loop works.
+The for loop read each word's character one at a time from the file (using fgetc()) until reach EOF.
+
+5. Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like "%s" to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
+fgetc() can check each character one at a time and ignore the word once it's length is greater than 45.
+fscanf() may have error when the word length is greater than 45.
+
+6.  Why do you think we declared the parameters for check and load as const?
+Since check and load function only need to read the value of parameters.
+Declare parameters as const can ensure that the value of parameters can't be modified.
+
 7.  TODO
 8.  TODO
 9.  TODO
