@@ -2,7 +2,7 @@
 My solutions of HarvardX -  CS50 2015
 
 ## Week 0
----
+
 ### Lecture
 - This is CS50
 - Binary
@@ -27,7 +27,7 @@ My solutions of HarvardX -  CS50 2015
 - Itching to Program?
 
 ## Week 1
----
+
 ### Lecture
 - Introduction
 - Announcements
@@ -80,7 +80,7 @@ My solutions of HarvardX -  CS50 2015
   - Itsa Mario
 
 ## Week 2
----
+
 ### Lecture
 - Bugs
 - Announcements
@@ -125,7 +125,7 @@ My solutions of HarvardX -  CS50 2015
   - Passwords Et Cetera
 
 ## Week 3
----
+
 ### Lecture
 - Announvements
 - Searching and Sorting
@@ -180,7 +180,7 @@ My solutions of HarvardX -  CS50 2015
     - fifteen: init(), draw(), move(), won() and GOD mode
 
 ## Week 4
----
+
 ### Lecture
 - Volkswagen and Trust in Software
 - Recursion
@@ -214,8 +214,34 @@ My solutions of HarvardX -  CS50 2015
 - Strings
 - Structs
 
+### Problem Set 4: Forensics
+- Getting started
+  - whodunit 
+  - resize
+  - recover
+
 ## Week 5
----
+
+### Lecture
+- Introduction
+- More On Pointers
+- CS50 Library
+- Memory and Valgrind
+- Linked Lists
+- Stacks & Queues
+
+### Lecture, continued
+- Linked List, continued
+  - Searching
+- Stacks & Queues
+- Memory
+- More Data Structures
+- Compression
+- Hash Tables
+  - Separate Chaining
+- Tries
+- Announcements
+
 ### Section
 - File Pointers
 - Singly-Linked Lists
@@ -227,7 +253,18 @@ My solutions of HarvardX -  CS50 2015
 - Valgrind
 
 ## Week 6
----
+
+### Lecture
+- Introduction
+- Transitioning to Web Programming
+- Data Structures Recap
+- Announcements
+- Web Programming!
+  - Traceroute
+  - TCP/IP
+  - HTTP Requests
+  - HTML
+
 ### Section
 - Stacks
 - Queues
@@ -242,9 +279,22 @@ My solutions of HarvardX -  CS50 2015
 - Tries
 
 ### Problem Set 5: Mispellings
+- Getting Started
+  - Makefile
+  - speller.c
+  - questions.txt
+  - texts
+- Spell Checking
+  - load
+  - check
+  - size
+  - unload
+- Checking Spell Checking
+  - Big Board
+  - questions.txt
 
 ## Week 7
----
+
 ### Section
 - Internet Primer
 - IP
@@ -262,7 +312,7 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 6: Web Server
 
 ## Week 8
----
+
 ### Section
 - PHP Syntax
 - PHP for Web Development
@@ -277,7 +327,7 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 7: C$50 Finance
 
 ## Week 9
----
+
 ### Section
 - DOM
 - JavaScript
@@ -289,14 +339,14 @@ My solutions of HarvardX -  CS50 2015
 ### Problem Set 8: Mashup
 
 ## Week 10
----
+
 
 ## Week 11
----
+
 ### AI Series
 
 ## Week 12
----
+
 ### Seminars
 - Awesome iPhone Apps with Objective-C
 - Building Apps for Mobile, Gaming, IoT and more using AWS DynamoDB
