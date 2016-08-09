@@ -222,6 +222,26 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 5
 
+### Lecture
+- Introduction
+- More On Pointers
+- CS50 Library
+- Memory and Valgrind
+- Linked Lists
+- Stacks & Queues
+
+### Lecture, continued
+- Linked List, continued
+  - Searching
+- Stacks & Queues
+- Memory
+- More Data Structures
+- Compression
+- Hash Tables
+  - Separate Chaining
+- Tries
+- Announcements
+
 ### Section
 - File Pointers
 - Singly-Linked Lists
@@ -233,6 +253,17 @@ My solutions of HarvardX -  CS50 2015
 - Valgrind
 
 ## Week 6
+
+### Lecture
+- Introduction
+- Transitioning to Web Programming
+- Data Structures Recap
+- Announcements
+- Web Programming!
+  - Traceroute
+  - TCP/IP
+  - HTTP Requests
+  - HTML
 
 ### Section
 - Stacks
@@ -248,6 +279,19 @@ My solutions of HarvardX -  CS50 2015
 - Tries
 
 ### Problem Set 5: Mispellings
+- Getting Started
+  - Makefile
+  - speller.c
+  - questions.txt
+  - texts
+- Spell Checking
+  - load
+  - check
+  - size
+  - unload
+- Checking Spell Checking
+  - Big Board
+  - questions.txt
 
 ## Week 7
 
