@@ -295,6 +295,19 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 7
 
+### Lecture
+- Introduction
+- HTTP
+- HTML
+- Web Servers
+- Working with HTML
+
+### Lecture, continued
+- PHP
+  - Syntax
+  - Using PHP to Send Texts
+- Using PHP for Web Programming
+
 ### Section
 - Internet Primer
 - IP
@@ -310,6 +323,13 @@ My solutions of HarvardX -  CS50 2015
 - PHP Syntax
 
 ### Problem Set 6: Web Server
+- What To Do
+  - lookup
+  - parse
+  - abs_path
+    - query
+    - load
+  - indexes
 
 ## Week 8
 
