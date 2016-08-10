@@ -323,29 +323,8 @@ My solutions of HarvardX -  CS50 2015
 - PHP Syntax
 
 ### Problem Set 6: Web Server
-- Getting Started
-  - server.c
-  - main
-  - connected
-  - error
-  - freedir
-  - handler
-  - htmlspecialchars
-  - indexes
-  - interpret
-  - list
-  - load
+- What To Do
   - lookup
-  - parse
-  - reason
-  - redirect
-  - request
-  - respond
-  - start
-  - stop
-  - transfer
-  - urldecode
-- What To Dolookup
   - parse
   - abs_path
     - query
