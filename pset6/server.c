@@ -618,8 +618,29 @@ bool load(FILE* file, BYTE** content, size_t* length)
  */
 const char* lookup(const char* path)
 {
-    // TODO
-    return NULL;
+    char* ext = strrchr(path, ".");
+    if (ext == NULL)
+        return NULL;
+    
+    if (strcasecmp(ext, ".css") == 0)
+        return "text/css";
+    else if (strcasecmp(ext, ".html") == 0)
+        return "text/html";
+    else if (strcasecmp(ext, ".gif") == 0)
+        return "image/gif";
+    else if (strcasecmp(ext, ".ico") == 0)
+        return "image/x-icon";
+    else if (strcasecmp(ext, ".jpg") == 0)
+        return "image/jpeg";
+    else if (strcasecmp(ext, ".js") == 0)
+        return "text/javascript";
+    else if (strcasecmp(ext, ".php") == 0)
+        return "text/x-php";
+    else if (strcasecmp(ext, ".png") == 0)
+        return "image/png";
+    else
+        return NULL;
+        
 }
 
 /**
