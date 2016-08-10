@@ -62,36 +62,19 @@ void release(node* ptr)
  */
 bool check(const char* word)
 {
-    node* trav = root;
+    node* trav = root;   
     for (int i = 0, n = strlen(word); i < n; i++)
     {
-        if (trav == NULL)
-            return false;
-        
         if (!(isalpha(word[i]) || word[i] == '\''))
             return false;
             
-        if (word[i] == '\'')
-        {
-            if (trav->children[26] == NULL)
-                return false;
-            trav = trav->children[26];
-        }
-        else
-        {
-            int c = tolower(word[i]);
-            int index = c - 97;
-            if (trav->children[index] == NULL)
-                return false;
-            trav = trav->children[index];
-        }
-        
-        if (i == n - 1 && trav != NULL && trav->is_word)
-        {
-            return true;
-        }
-        
+        int index = word[i] == '\'' ? 26 : tolower(word[i]) - 97;
+        if (trav->children[index] == NULL)
+            return false;
+        trav = trav->children[index];
     }
+    if (trav->is_word)
+        return true;
     
     return false;
 }
@@ -111,39 +94,31 @@ bool load(const char* dictionary)
     
     root = init();
     if (root == NULL)
+    {
+        fclose(fp);
         return false;
+    }
         
     node* trav = root;
-    
     // read each word in dictionary
     for (int c = fgetc(fp); c != EOF; c = fgetc(fp))
-    {
+    {    
         // allow only alphabetical characters and apostrophes
-        if (isalpha(c))
+        if (isalpha(c) || c == '\'')
         {
-            // assume that each word in dictionary will contain only lowercase alphabetical characters
-            int index = c - 97;
+            int index = c == '\'' ? 26 : c - 97;
             
             if (trav->children[index] == NULL)
             {
                 trav->children[index] = init();
                 if (trav->children[index] == NULL)
+                {
+                    fclose(fp);
                     return false;
+                }
             }
             
             trav = trav->children[index];
-        }
-        else if (c == '\'')
-        {
-            if (trav->children[26] == NULL)
-            {
-                trav->children[26] = init();
-                if (trav->children[26] == NULL)
-                    return false;
-            }
-                
-                
-            trav = trav->children[26];
         }
         else
         {
