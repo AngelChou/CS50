@@ -21,7 +21,20 @@ fscanf() may have error when the word length is greater than 45.
 Since check and load function only need to read the value of parameters.
 Declare parameters as const can ensure that the value of parameters can't be modified.
 
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
+7. What data structure(s) did you use to implement your spell-checker? Be sure not to leave your answer at just "hash table," "trie," or the like. Expound on what’s inside each of your "nodes."
+tries.
+typedef struct node
+{
+    bool is_word;
+    struct node* children[27];
+}
+node;
+
+8. How slow was your code the first time you got it working correctly?
+TIME IN TOTAL: 0.15
+
+9. What kinds of changes, if any, did you make to your code in order to improve its performance?
+Can't figure out any changes to improve the performance.
+
+10. Do you feel that your code has any bottlenecks that you were not able to chip away at?
+The bottlenecks maybe at the children array of struct node pointers.
