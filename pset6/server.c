@@ -618,7 +618,7 @@ bool load(FILE* file, BYTE** content, size_t* length)
  */
 const char* lookup(const char* path)
 {
-    char* ext = strrchr(path, ".");
+    char* ext = strrchr(path, '.');
     if (ext == NULL)
         return NULL;
     
@@ -650,9 +650,57 @@ const char* lookup(const char* path)
  */
 bool parse(const char* line, char* abs_path, char* query)
 {
-    // TODO
-    error(501);
-    return false;
+    // check method
+    char method[strlen("GET ") + 1];
+    strncpy(method, line, strlen("GET "));
+    method[strlen("GET ")] = '\0';
+    
+    if (strcmp(method, "GET ") != 0)
+    {
+        error(405);
+        return false;
+    }
+    
+    // check HTTP-version
+    char* HTTP_version = strrchr(line, ' ') + 1;
+    if (strncmp(HTTP_version, "HTTP/1.1", strlen("HTTP/1.1")) != 0)
+    {
+        error(505);
+        return false;
+    }
+    
+    // check request-target
+    int len = (HTTP_version - 1) - (strstr(line, " ") + 1) + 1;
+    char request_target[len];
+    strncpy(request_target, strstr(line, " ") + 1, len - 1);
+    request_target[len] = '\0';
+    
+    if (request_target[0] != '/')
+    {
+        error(501);
+        return false;
+    }
+    
+    if (strstr(request_target, "\""))
+    {
+        error(400);
+        return false;
+    }
+    
+    char* q = strstr(request_target, "?");
+    if (q != NULL)
+    {
+        strncpy(query, q + 1, (HTTP_version - 1) - (q + 1));
+        strncpy(abs_path, request_target, q - request_target);
+    }
+    else
+    {
+        //query[0] = '\0';
+        query = "";
+        strncpy(abs_path, request_target, len - 1);
+    }
+    
+    return true;
 }
 
 /**
