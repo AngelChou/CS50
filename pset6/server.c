@@ -444,7 +444,33 @@ char* htmlspecialchars(const char* s)
  */
 char* indexes(const char* path)
 {
-    // TODO
+    int len = strlen(path) + strlen("index.html") + 1;
+    char* index_path = malloc(len);
+    if (index_path == NULL)
+    {
+        return NULL;
+    }
+    
+    // check index.php
+    strncpy(index_path, path, strlen(path));
+    strncat(index_path, "index.php", strlen("index.php"));
+    index_path[len-1] = '\0';
+    if (access(index_path, F_OK) != -1)
+    {
+        return index_path;
+    }
+    
+    // check index.html
+    memset(index_path, 0x00, len);
+    strncpy(index_path, path, strlen(path));
+    strncat(index_path, "index.html", strlen("index.html"));
+    index_path[len] = '\0';
+    if (access(index_path, F_OK) != -1)
+    {
+        return index_path;
+    }
+    
+    free(index_path);
     return NULL;
 }
 
@@ -609,8 +635,25 @@ void list(const char* path)
  */
 bool load(FILE* file, BYTE** content, size_t* length)
 {
-    // TODO
-    return false;
+    BYTE buffer[BYTES] = {0};
+    *content = malloc(BYTES);
+    *length = 0;
+    int ret = fread(buffer, 1, BYTES, file);
+    while (ret > 0)
+    {
+        memcpy(*content + *length, buffer, ret);
+        *length += ret;
+        
+        *content = realloc(*content, *length + BYTES + 1);
+        if (*content == NULL)
+        {
+            *length = 0;
+            fclose(file);
+            return false;
+        }
+        ret = fread(buffer, 1, BYTES, file);
+    }
+    return true;
 }
 
 /**
@@ -670,9 +713,9 @@ bool parse(const char* line, char* abs_path, char* query)
     }
     
     // check request-target
-    int len = (HTTP_version - 1) - (strstr(line, " ") + 1) + 1;
-    char request_target[len];
-    strncpy(request_target, strstr(line, " ") + 1, len - 1);
+    int len = (HTTP_version - 1) - (strstr(line, " ") + 1);
+    char request_target[len + 1];
+    strncpy(request_target, strstr(line, " ") + 1, len);
     request_target[len] = '\0';
     
     if (request_target[0] != '/')
@@ -691,13 +734,15 @@ bool parse(const char* line, char* abs_path, char* query)
     if (q != NULL)
     {
         strncpy(query, q + 1, (HTTP_version - 1) - (q + 1));
+        query[(HTTP_version - 1) - (q + 1)] = '\0';
         strncpy(abs_path, request_target, q - request_target);
+        abs_path[q - request_target] = '\0';
     }
     else
     {
-        //query[0] = '\0';
         query = "";
-        strncpy(abs_path, request_target, len - 1);
+        strncpy(abs_path, request_target, len);
+        abs_path[len] = '\0';
     }
     
     return true;
