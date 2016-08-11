@@ -333,6 +333,18 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 8
 
+### Lecture
+- Announcements
+- PHP
+- MVC
+- SQL
+ 
+### Lecture, continued
+- SQL
+- Transactions
+- SQL Injection
+- Final Projects
+
 ### Section
 - PHP Syntax
 - PHP for Web Development
@@ -345,6 +357,27 @@ My solutions of HarvardX -  CS50 2015
 - SQL
 
 ### Problem Set 7: C$50 Finance
+- Getting Started
+  - chmod 
+- Yahoo!
+- Walkthrough
+  - index
+  - protfolio
+  - config
+  - helpers
+  - header, footer
+  - login
+  - styles
+  - users
+- What To Do
+  - register
+  - quote
+  - portfolio
+  - sell
+  - buy
+  - history
+  - extra feature
+- Sanity Checks
 
 ## Week 9
 
