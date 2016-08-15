@@ -22,8 +22,8 @@ $rows = query("SELECT symbol, shares FROM portfolio WHERE id = ?", $_SESSION["id
 foreach ($row as $row)
 {
   print("<tr>");
-  print("<td>{$row['symbol']}</td>");
-  print("<td>{$row['shares']}</td>");
+  print("<td>{$row["symbol"]}</td>");
+  print("<td>{$row["shares"]}</td>");
   print("</tr>");
 }
 ```
