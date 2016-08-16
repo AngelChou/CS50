@@ -381,6 +381,20 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 9
 
+### Lecture
+- Announcements
+- JavaScript
+  - Syntax
+  - JSON
+- Document Object Model
+- Ajax and Asynchronicity
+ 
+### Lecture, continued
+- Introduction
+- Anonymous Functions and Callbacks
+- Ajax
+- Giza Project
+
 ### Section
 - DOM
 - JavaScript
@@ -390,6 +404,33 @@ My solutions of HarvardX -  CS50 2015
 - DOM
 
 ### Problem Set 8: Mashup
+- Walkthrough
+  - import
+  - index.php
+  - styles.css
+  - scripts.js
+    - addMarker
+    - configure
+    - hideInfo
+    - removeMarkers
+    - search
+    - showInfo
+    - update
+  - update.php
+  - search.php
+  - articles.php
+  - config.php
+  - helpers.php
+  - config.json
+- What To Do
+  - config.json
+  - import
+  - search.php
+  - scripts.js
+    - configure
+    - addMarker
+    - removeMarkers
+    - personal touch
 
 ## Week 10
 
