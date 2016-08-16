@@ -27,8 +27,11 @@
             apologize("Invalid number of shares.");
         }
 
+        // change symbol to uppercase
+        $symbol = strtoupper($_POST["symbol"]);
+        
         // get the total cost
-        $stock = lookup($_POST["symbol"]);
+        $stock = lookup($symbol);
         if ($stock !== false)
         {
             $cost = $stock["price"] * $_POST["shares"];
@@ -48,12 +51,14 @@
                 apologize("You can't afford that.");
             }
 
-            CS50::query("INSERT INTO portfolios (user_id, symbol, shares) VALUES(?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)", $_SESSION["id"], $_POST["symbol"], $_POST["shares"]);
+            CS50::query("INSERT INTO portfolios (user_id, symbol, shares) VALUES(?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)", $_SESSION["id"], $symbol, $_POST["shares"]);
             CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?", $cost, $_SESSION["id"]);
+            CS50::query("INSERT INTO history (user_id, transaction, time, symbol, shares, price) VALUES(?, 'BUY', NOW(), ?, ?, ?)", $_SESSION["id"], $symbol, $_POST["shares"], $cost);
             
             // redirect to portfolio
             redirect("/");
         }
+        apologize("Database fetch error.");
     }
     
 ?>

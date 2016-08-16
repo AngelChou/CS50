@@ -4,7 +4,6 @@
         <?php foreach ($positions as $position): ?>
             <option value=<?= $position["symbol"] ?>><?= $position["symbol"] ?></option>
         <?php endforeach ?>
-        <option value="test">test</option>
     </select>
     <br><br>
     <button type="submit" class="btn btn-default">Sell</button>

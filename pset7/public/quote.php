@@ -28,7 +28,8 @@
         }
         else 
         {
-            render("quote_show.php", ["name" => $stock["name"], "symbol" => $stock["symbol"], "price" => $stock["price"]]);
+            $price = number_format($stock["price"], 2, ".", ",");
+            render("quote_show.php", ["name" => $stock["name"], "symbol" => $stock["symbol"], "price" => $price]);
         } 
     }
 

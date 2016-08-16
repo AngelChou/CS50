@@ -13,10 +13,10 @@
             <?php foreach ($positions as $position): ?>
             <tr>
                 <td><?= $position["symbol"] ?></td>
-                <td> </td>
+                <td><?= $position["name"] ?></td>
                 <td><?= $position["shares"] ?></td>
-                <td><?= $position["price"] ?></td>
-                <td><?= $position["price"] * $position["shares"] ?></td>
+                <td>$<?= $position["price"] ?></td>
+                <td>$<?= $position["price"] * $position["shares"] ?></td>
             </tr>
             <?php endforeach ?>
             <tr>
@@ -24,7 +24,7 @@
                 <td> </td>
                 <td> </td>
                 <td> </td>
-                <td><?= $cash ?></td>
+                <td>$<?= $cash ?></td>
             </tr>
         </tbody>
     </table>

@@ -36,6 +36,7 @@
     {
         $cash = 0;
     }
+    $cash = number_format($cash, 2, ".", ",");
 
     // render portfolio
     render("portfolio.php", ["positions" => $positions, "cash" => $cash, "title" => "Portfolio"]);

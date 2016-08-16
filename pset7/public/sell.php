@@ -38,20 +38,23 @@
         $rows = CS50::query("SELECT shares FROM portfolios WHERE user_id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
         if (count($rows) == 1)
         {
-            $share = $rows[0]["share"];
-            $stock = lookup($_POST["symbol"]);
+            $symbol = strtoupper($_POST["symbol"]);
+            $share = $rows[0]["shares"];
+            $stock = lookup($symbol);
             if ($stock !== false)
             {
                 $sold_price = $stock["price"] * $share;
+                CS50::query("INSERT INTO history (user_id, transaction, time, symbol, shares, price) VALUES(?, 'SELL', NOW(), ?, ?, ?)", $_SESSION["id"], $symbol, $share, $sold_price);
+                CS50::query("UPDATE users SET cash = cash + ? WHERE id = ?", $sold_price, $_SESSION["id"]);
+                CS50::query("DELETE FROM portfolios WHERE user_id = ? AND symbol = ?", $_SESSION["id"], $symbol);
+                
+                // redirect to portfolio
+                redirect("/");
             }
+            apologize("Incorrect stock.");
             
-            CS50::query("UPDATE users SET cash = cash + ? WHERE id = ?", $sold_price, $_SESSION["id"]);
-            CS50::query("DELETE FROM portfolios WHERE user_id = ? AND symbol = ?", $_SESSION["id"], $_POST["symbol"]);
-            
-            // redirect to portfolio
-            redirect("/");
         }
-        apologize("Incorrect stock.");
+        apologize("Database fetch error.");
     }
     
 ?>
