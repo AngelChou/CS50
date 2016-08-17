@@ -76,7 +76,26 @@ $(function() {
  */
 function addMarker(place)
 {
-    // TODO
+    var image = 'img/icon31.png';
+    var latlng = new google.maps.LatLng(place["latitude"], place["longitude"]);
+    var label = place["place_name"] + ", " + place["admin_name1"];
+    
+    var marker = new MarkerWithLabel({
+        position: latlng,
+        icon: image,
+        labelContent: label,
+        labelAnchor: new google.maps.Point(22, 0)
+    });
+    
+    // To add the marker to the map, call setMap();
+    marker.setMap(map);
+    
+    markers.push(marker);
+    /*
+    marker.addListener('click', function(){
+        info.open(map, marker);
+    });*/
+    
 }
 
 /**
@@ -161,7 +180,11 @@ function hideInfo()
  */
 function removeMarkers()
 {
-    // TODO
+    for (var i = 0; i < markers.length; i++)
+    {
+        markers[i].setMap(null);
+    }
+    markers = [];
 }
 
 /**
