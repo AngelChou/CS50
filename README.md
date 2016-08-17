@@ -434,6 +434,17 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 10
 
+### Lecture
+- Announcements
+- Security
+- Defenses
+
+### Lecture, continued
+- Introduction
+- Natural Language Processing
+- Speech Recognition
+- Question Answering
+- Non-verbal Communication
 
 ## Week 11
 
