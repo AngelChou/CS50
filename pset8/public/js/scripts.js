@@ -76,13 +76,14 @@ $(function() {
  */
 function addMarker(place)
 {
-    var image = 'img/icon31.png';
+    var image = 'img/icon35.png';
     var latlng = new google.maps.LatLng(place["latitude"], place["longitude"]);
     var label = place["place_name"] + ", " + place["admin_name1"];
     
     var marker = new MarkerWithLabel({
         position: latlng,
         icon: image,
+        animation: google.maps.Animation.DROP,
         labelContent: label,
         labelAnchor: new google.maps.Point(22, 0)
     });
@@ -90,12 +91,43 @@ function addMarker(place)
     // To add the marker to the map, call setMap();
     marker.setMap(map);
     
-    markers.push(marker);
-    /*
     marker.addListener('click', function(){
-        info.open(map, marker);
-    });*/
+        
+        // get places matching query (asynchronously)
+        var parameters = {
+            geo: place["place_name"]
+        };
+        $.getJSON("articles.php", parameters)
+        .done(function(data, textStatus, jqXHR) {
+            var content = "<ul>";
+            for (var i = 0; i < data.length; i ++)
+            {
+                content += "<li><a href='" + data[i]["link"] + "'>" + data[i]["title"] + "</a></li>";
+            }
+            content += "</ul>";
+            showInfo(marker, content);           
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
     
+            // log error to browser's console
+            console.log(errorThrown.toString());
+        });
+    });
+    
+    marker.addListener('click', function(){
+        if (marker.getAnimation() !== null) 
+        {
+            marker.setAnimation(null);
+        } 
+        else 
+        {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function(){ marker.setAnimation(null); }, 1500);
+        }
+    });
+    
+    // add marker to marker list
+    markers.push(marker);
 }
 
 /**
