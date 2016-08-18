@@ -462,6 +462,10 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 12
 
+### Lecture
+- This Was CS50
+- Looking Forward
+
 ### Seminars
 - Awesome iPhone Apps with Objective-C
 - Building Apps for Mobile, Gaming, IoT and more using AWS DynamoDB
