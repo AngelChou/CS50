@@ -448,6 +448,16 @@ My solutions of HarvardX -  CS50 2015
 
 ## Week 11
 
+### Lecture
+- Announcements
+- AI Search
+  - Adversarial Search
+- Beyond Board Games
+
+### Lecture, continued
+- What's After CS50?
+- This Was CS50
+
 ### AI Series
 
 ## Week 12
